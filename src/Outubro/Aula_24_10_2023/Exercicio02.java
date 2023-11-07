@@ -17,21 +17,6 @@ package Outubro.Aula_24_10_2023;
 import java.util.Scanner;
 
 public class Exercicio02 {
-
-    public static void Inss() {
-        Scanner scan = new Scanner(System.in);
-        double inssMensal, inssAnual,salario,salarioLiquido;
-        int mesesTrabalhados;
-        System.out.println("Digite o número de meses completos que você trabalhou neste ano: ");
-        mesesTrabalhados = scan.nextInt();
-        inssAnual = inssMensal * mesesTrabalhados;
-        salarioLiquido = salario - inssMensal;
-
-        System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
-        System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
-        System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
-        System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
-    }
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         double salario, salarioNovo, ferias, decimoTerceiro, inssMensal, inssAnual, salarioLiquido;
@@ -60,23 +45,31 @@ public class Exercicio02 {
                     System.out.println("Seu novo salário, com acréscimo de 10%, será de R$ " + salarioNovo);
                 } else {
                     salarioNovo = salario + (0.05 * salario);
-
                     System.out.println("Seu novo salário, com acréscimo de 5%, será de R$ " + salarioNovo);
                 }
-            } else if (opcaoMenu == 2) {
+            }
+
+            else if (opcaoMenu == 2) {
                 System.out.println("Digite o seu salário atual: ");
                 salario = scan.nextDouble();
                 ferias = salario + (salario / 3);
                 System.out.println("Suas férias equivalem a R$ " + ferias);
-            } else if (opcaoMenu == 3) {
+            }
+
+            else if (opcaoMenu == 3) {
                 System.out.println("Digite o seu salário atual: ");
                 salario = scan.nextDouble();
                 System.out.println("Digite o número de meses que você trabalhou na empresa neste ano: ");
                 mesesTrabalhados = scan.nextInt();
+                if (mesesTrabalhados <=0 || mesesTrabalhados > 12) {
+                    System.out.println("Valor inválido! Tente novamente.");
+                } else {
+                    decimoTerceiro = (salario * mesesTrabalhados) / 12;
+                    System.out.println("O seu décimo terceiro equivale a R$ " + decimoTerceiro);
+                }
+            }
 
-                decimoTerceiro = (salario * mesesTrabalhados) / 12;
-                System.out.println("O seu décimo terceiro equivale a R$ " + decimoTerceiro);
-            } else if (opcaoMenu == 4) {
+            else if (opcaoMenu == 4) {
                 System.out.println("Digite o seu salário atual: ");
                 salario = scan.nextDouble();
 
@@ -86,54 +79,85 @@ public class Exercicio02 {
                     inssMensal = salario * 0.075;
                     System.out.println("Digite o número de meses completos que você trabalhou neste ano: ");
                     mesesTrabalhados = scan.nextInt();
-                    inssAnual = inssMensal * mesesTrabalhados;
-                    salarioLiquido = salario - inssMensal;
+                    if (mesesTrabalhados <=0 || mesesTrabalhados > 12) {
+                        System.out.println("Valor inválido! Tente novamente.");
+                    } else {
+                        inssAnual = inssMensal * mesesTrabalhados;
+                        salarioLiquido = salario - inssMensal;
 
-                    System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
-                    System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
-                    System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
-                    System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                        System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
+                        System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
+                        System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
+                        System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                    }
                 } else if (salario >= 1320.01 && salario <= 2571.29) {
                     inssMensal = salario * 0.09;
                     System.out.println("Digite o número de meses completos que você trabalhou neste ano: ");
                     mesesTrabalhados = scan.nextInt();
-                    inssAnual = inssMensal * mesesTrabalhados;
-                    salarioLiquido = salario - inssMensal;
+                    if (mesesTrabalhados <=0 || mesesTrabalhados > 12) {
+                        System.out.println("Valor inválido! Tente novamente.");
+                    } else {
+                        inssAnual = inssMensal * mesesTrabalhados;
+                        salarioLiquido = salario - inssMensal;
 
-                    System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
-                    System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
-                    System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
-                    System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                        System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
+                        System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
+                        System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
+                        System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                    }
                 } else if (salario >= 2571.30 && salario <= 3856.94) {
                     inssMensal = salario * 0.12;
                     System.out.println("Digite o número de meses completos que você trabalhou neste ano: ");
                     mesesTrabalhados = scan.nextInt();
-                    inssAnual = inssMensal * mesesTrabalhados;
-                    salarioLiquido = salario - inssMensal;
+                    if (mesesTrabalhados <=0 || mesesTrabalhados > 12) {
+                        System.out.println("Valor inválido! Tente novamente.");
+                    } else {
+                        inssAnual = inssMensal * mesesTrabalhados;
+                        salarioLiquido = salario - inssMensal;
 
-                    System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
-                    System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
-                    System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
-                    System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                        System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
+                        System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
+                        System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
+                        System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                    }
                 } else if (salario >= 3856.95 && salario <= 7507.49) {
                     inssMensal = salario * 0.14;
                     System.out.println("Digite o número de meses completos que você trabalhou neste ano: ");
                     mesesTrabalhados = scan.nextInt();
-                    inssAnual = inssMensal * mesesTrabalhados;
-                    salarioLiquido = salario - inssMensal;
+                    if (mesesTrabalhados <=0 || mesesTrabalhados > 12) {
+                        System.out.println("Valor inválido! Tente novamente.");
+                    } else {
+                        inssAnual = inssMensal * mesesTrabalhados;
+                        salarioLiquido = salario - inssMensal;
 
-                    System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
-                    System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
-                    System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
-                    System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                        System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
+                        System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
+                        System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
+                        System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                    }
                 } else {
                     inssMensal = 876.95;
-                    Inss();
-                }
+                    System.out.println("Digite o número de meses completos que você trabalhou neste ano: ");
+                    mesesTrabalhados = scan.nextInt();
+                    if (mesesTrabalhados <=0 || mesesTrabalhados > 12) {
+                        System.out.println("Valor inválido! Tente novamente.");
+                    } else {
+                        inssAnual = inssMensal * mesesTrabalhados;
+                        salarioLiquido = salario - inssMensal;
 
-            } else if (opcaoMenu == 5) {
+                        System.out.println("Você paga R$ " + inssMensal + " de INSS por mês.");
+                        System.out.println("Você paga R$ " + inssAnual + " de INSS por ano.");
+                        System.out.println("Salário líquido mensal: R$ " + salarioLiquido);
+                        System.out.println("Salário líquido anual: R$ " + (salarioLiquido * mesesTrabalhados));
+                    }
+                }
+            }
+
+            else if (opcaoMenu == 5) {
                 System.out.println("Obrigado por utilizar este sistema.");
-            } else {
+            }
+
+            else {
                 System.out.println("Opção inválida! Tente novamente.");
             }
         }
